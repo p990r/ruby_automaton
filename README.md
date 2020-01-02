@@ -47,15 +47,21 @@ If you now type
 followed by 'enter', then you should see
 
   e 0
+  
   A_DEBUG Command received: e 0
+  
   EB
+  
   Ee	1	0	1	(run POS())
+  
   EE
 
-You have now explored state 0 and it tells you that state 1 (the first number
-after an Ee) is now available for exploration. The second and third number
-are not important, while the last string is a textual description of the action
+
+You have now explored state 0 and it tells you that state 1 (the first number after an Ee) is now available for exploration. 
+
+The second and third number are not important, while the last string is a textual description of the action
 that would be performed to transition from state 0 to state 1.
+
 
 You can ignore lines starting with A_DEBUG or A_LOG.
 
@@ -66,40 +72,34 @@ If you type
 you should see
 
   A_DEBUG Command received: e 1
+  
   A_DEBUG (spexio) trans_text set to: pos2env ! 220 ! DUMMY_MTYPE !  DUMMY_MTYPE ! 999
+  
   EB
+  
   A_DEBUG trans_text for 2 is: |pos2env ! 220 ! DUMMY_MTYPE !  DUMMY_MTYPE ! 999|
+  
   Ee	2	1	1	pos2env ! 220 ! DUMMY_MTYPE ! DUMMY_MTYPE ! 999
+  
   EE
 
-Here the textual description takes a format you will see more often from
-now on:
+Here the textual description takes a format you will see more often from now on:
 
   pos2env ! action ! param1 ! param2 ! param3
 
-There is now a state with id 2 available for exploration. This state is reached
-by following an output transition (pos2env is output, env2pos is input) and it
-is labelled with the action '220'. There are always 3 parameters, but as you may
+
+There is now a state with id 2 available for exploration. This state is reached by following an output transition (pos2env is output, env2pos is input) and it is labelled with the action '220'. There are always 3 parameters, but as you may
 have guessed from the values, in this case all 3 values are dummies.
 
-In these two examples the states that are returned are new states that were not
-yet available before. This is not always the case. When it is not the case, the
-Ee line includes an additional number after param3 (the 'identical' from the
-protocol documentation), which is the id of a state that became available
-earlier in the exploration, to which the newly available state is identical.
+In these two examples the states that are returned are new states that were not yet available before. This is not always the case. When it is not the case, the Ee line includes an additional number after param3 (the 'identical' from the protocol documentation), which is the id of a state that became available earlier in the exploration, to which the newly available state is identical.
 
-The model models a point of sale (POS) system, which can be used to register
-articles, open accounts, pay for articles etc. This may help explain some of
-the descriptions that are shown for later transitions.
+The model models a point of sale (POS) system, which can be used to register articles, open accounts, pay for articles etc. This may help explain some of the descriptions that are shown for later transitions.
 
 
 Assignment 1
 ============
-Make a program in Ruby that communicates with the executable [1] and
-explores the transition system. During the exploration it should keep
-track of the states and transitions of the system. Use this information
-to draw a visual representation of the transition system. Also show a list of
-unique input and output actions.
+Make a program in Ruby that communicates with the executable [1] and explores the transition system. During the exploration it should keep track of the states and transitions of the system. Use this information
+to draw a visual representation of the transition system. Also show a list of unique input and output actions.
 
 At the end of the assignment you should be able to show:
 * What states and transitions the transition system consists of
