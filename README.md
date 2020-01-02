@@ -1,4 +1,3 @@
-# ruby_automaton
 Introduction
 ============
 In this assignment you will investigate some properties of the attached binary.
